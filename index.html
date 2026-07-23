@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061d31">
+<title>Saturday Band Live</title>
+<style>
+:root{
+  --navy:#061d31;
+  --navy-2:#0e2a44;
+  --card:#18354f;
+  --cream:#f2ece4;
+  --orange:#ef8956;
+  --white:#fffdf8;
+  --ink:#203344;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--navy);
+  color:var(--white);
+}
+.container{width:min(1120px,90%);margin:auto}
+
+/* HERO: full image, never cropped */
+.hero{
+  position:relative;
+  width:100%;
+  background:var(--navy);
+}
+.hero img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* Hide the baked navigation text and replace it with real links */
+.nav-mask{
+  position:absolute;
+  top:0;
+  right:0;
+  width:57%;
+  height:10.7%;
+  background:linear-gradient(90deg,rgba(6,29,49,.96),#061d31 18%,#061d31);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.hero-nav{
+  position:absolute;
+  z-index:3;
+  top:0;
+  right:0;
+  height:10.7%;
+  width:53%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:3.2vw;
+  padding-right:5.2vw;
+}
+.hero-nav a{
+  color:#fff;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:clamp(.62rem,1.2vw,.9rem);
+  padding:.65rem .15rem;
+  border-bottom:2px solid transparent;
+}
+.hero-nav a:hover,
+.hero-nav a:focus-visible{
+  color:var(--orange);
+  border-bottom-color:var(--orange);
+  outline:none;
+}
+.hero-nav a:first-child{
+  border-bottom-color:var(--orange);
+}
+
+/* BEIGE SECTION */
+.relive{
+  background:var(--cream);
+  color:var(--ink);
+  padding:72px 0;
+}
+.relive-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 230px;
+  gap:64px;
+  align-items:center;
+}
+.relive-copy{
+  text-align:center;
+  max-width:760px;
+  justify-self:center;
+}
+.relive-copy .eyebrow{
+  color:var(--orange);
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  font-size:.78rem;
+  font-weight:800;
+}
+.relive-copy h2{
+  margin:10px 0 18px;
+  font-family:Georgia,"Times New Roman",serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:clamp(2rem,4vw,3.2rem);
+}
+.relive-copy p{
+  margin:0 auto;
+  max-width:700px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1rem,1.6vw,1.18rem);
+  line-height:1.8;
+}
+.relive-copy .secondary{
+  margin-top:14px;
+  color:#607080;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:.95rem;
+}
+.qr-card{
+  width:210px;
+  aspect-ratio:1;
+  border:1px solid #b7aa9c;
+  border-radius:20px;
+  background:rgba(255,255,255,.6);
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:24px;
+  box-shadow:0 16px 32px rgba(32,51,68,.08);
+}
+.qr-placeholder{
+  width:120px;
+  height:120px;
+  border:2px dashed #8796a2;
+  display:grid;
+  place-items:center;
+  color:#657482;
+  font-size:.72rem;
+  font-weight:700;
+}
+.qr-caption{
+  margin-top:12px;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* SETLIST */
+.setlist{
+  position:relative;
+  overflow:hidden;
+  padding:58px 0 86px;
+  background:
+    radial-gradient(circle at 12% 15%,rgba(255,255,255,.035),transparent 18rem),
+    radial-gradient(circle at 88% 75%,rgba(255,255,255,.035),transparent 22rem),
+    var(--navy);
+}
+.section-title{
+  text-align:center;
+  color:var(--orange);
+  text-transform:uppercase;
+  letter-spacing:.32em;
+  font-size:1rem;
+  margin:0 0 34px;
+}
+.section-title:after{
+  content:"";
+  display:block;
+  width:36px;
+  height:2px;
+  background:var(--orange);
+  margin:14px auto 0;
+}
+.track-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 18px;
+}
+.track{
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 40px;
+  align-items:center;
+  min-height:56px;
+  padding:8px 14px;
+  border-radius:14px;
+  background:linear-gradient(90deg,#17344f,#153149);
+}
+.track-number{
+  color:var(--orange);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.02rem;
+}
+.track-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1rem;
+}
+.play{
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:#425d74;
+  color:white;
+  cursor:not-allowed;
+}
+.thanks{text-align:center;margin-top:56px}
+.thanks .script{
+  margin:0;
+  color:var(--orange);
+  font-family:"Brush Script MT","Segoe Script",cursive;
+  font-size:clamp(2.8rem,6vw,4.5rem);
+}
+.thanks .band{
+  margin-top:8px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  font-size:.76rem;
+}
+.back-top{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--orange);
+  color:var(--navy);
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(0,0,0,.28);
+}
+footer{
+  padding:20px 0 30px;
+  text-align:center;
+  color:#96a8b7;
+  font-size:.8rem;
+}
+@media(max-width:760px){
+  .nav-mask{width:70%;height:11%}
+  .hero-nav{
+    width:69%;
+    height:11%;
+    gap:4vw;
+    padding-right:4vw;
+  }
+  .hero-nav a{font-size:.58rem;letter-spacing:.08em}
+  .relive-grid{grid-template-columns:1fr;gap:34px}
+  .qr-card{justify-self:center}
+  .track-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body id="home">
+
+<header class="hero" aria-label="Saturday Band Live">
+  <img src="assets/hero-full.png" alt="Saturday Band Live, 24 luglio alle 20:30, da Geri's House">
+  <div class="nav-mask" aria-hidden="true"></div>
+  <nav class="hero-nav" aria-label="Navigazione principale">
+    <a href="#home">Home</a>
+    <a href="#concerto">Il concerto</a>
+    <a href="#canzoni">Le canzoni</a>
+  </nav>
+</header>
+
+<section class="relive" id="concerto">
+  <div class="container relive-grid">
+    <div class="relive-copy">
+      <div class="eyebrow">Rivivi la serata</div>
+      <h2>Guarda il concerto completo</h2>
+      <p>Grazie per aver condiviso con noi questa serata speciale. Scansiona il QR code per guardare il video completo del concerto e rivivere ogni momento insieme a noi.</p>
+      <p class="secondary">Più sotto troverai anche le registrazioni audio delle singole canzoni, da ascoltare quando vuoi.</p>
+    </div>
+
+    <div class="qr-card">
+      <div>
+        <div class="qr-placeholder">QR CODE</div>
+        <div class="qr-caption">Video completo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="setlist" id="canzoni">
+  <div class="container">
+    <h2 class="section-title">La setlist</h2>
+    <div class="track-grid" id="track-grid"></div>
+
+    <div class="thanks">
+      <p class="script">Grazie a tutti voi! ♡</p>
+      <div class="band">Saturday Band</div>
+    </div>
+  </div>
+</main>
+
+<a class="back-top" href="#home" aria-label="Torna in alto">↑</a>
+<footer>Saturday Band · Live · 24 luglio · ore 20:30</footer>
+
+<script>
+const titles = Array.from({length:14},(_,i)=>`Canzone ${i+1}`);
+document.getElementById("track-grid").innerHTML = titles.map((title,i)=>`
+  <article class="track">
+    <span class="track-number">${String(i+1).padStart(2,"0")}</span>
+    <span class="track-title">${title}</span>
+    <button class="play" disabled aria-label="Registrazione non ancora disponibile">▶</button>
+  </article>
+`).join("");
+</script>
+</body>
+</html>
